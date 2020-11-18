@@ -8,9 +8,14 @@ Credit card fraud happens when someone — a fraudster or a thief — uses your 
 * Used one hot encoding to convert the string to numeric data in the selected columns.
 * By using Random Forest classifier we selected the feature importance to narrow down our features to the model and split the data and    scaled then trained the logistic regression model with the trained data. Once the model is fitted then we predicted outcome using test data.
 
-##Data source:
+## Data source:
 [Kaggle] https://www.kaggle.com/kartik2112/fraud-detection?select=fraudTrain.csv
          https://www.kaggle.com/kartik2112/fraud-detection?select=fraudTest.csv
+
+
+## Requirements to run the app on the local machine
+* Download the datasources from kaggle and save in the resources folder
+* Provide the heroku postgres user credentials in the config.py
 
 ## Visualizations:
 * The Cleaned csv file is uploaded into the Tableau Desktop.
@@ -29,7 +34,6 @@ Credit card fraud happens when someone — a fraudster or a thief — uses your 
 * Tableau
 * PostgreSQL 
 
-## Usage
 ## Local
 * Make sure all the requirements from requirements.txt are up to date
 * Run app.py
