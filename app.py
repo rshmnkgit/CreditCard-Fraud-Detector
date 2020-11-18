@@ -13,7 +13,7 @@ from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import Session
 
 # connection_string = f'{username}:{passowrd}@localhost:5432/Creditcard_db'   
-connection_string = f'{username}:{passowrd}@ec2-52-87-22-151.compute-1.amazonaws.com:5432/d38ov1t1kmn4vq'  
+connection_string = f'{username}:{passowrd}@ec2-52-87-22-151.compute-1.amazonaws.com:5432/d38ov1t1kmn4vq'
 engine = create_engine(f'postgresql://{connection_string}')
 
 
@@ -51,7 +51,7 @@ def query_to_dictlist(keylist, obj):
     return result_list
 
 # api route to extract the user's response in the form, pre-process it, plug it into the model, and spit out a prediction
-@app.route('/makepredicitons', methods=['GET','POST'])
+@app.route('/makepredicitons')
 def makepredicitons():
     session = Session(engine)
     data_test = session.query(test_data.cc_num, test_data.category, 
@@ -144,7 +144,8 @@ def makepredicitons():
     # output_csv["unixtime"] = selected_features['unix_time']
     output_csv["actual_value"] = actual_value
     output_csv["predicted_value"] = predicted_value
-    output_sliced = output_csv[-30:]
+    output_sliced = output_csv[4970:5000]
+    # output_sliced = output_csv[-30:]
     output_dict = output_sliced.to_dict("records")
     # output_dict = output_csv.to_dict("records")
     return output_dict
@@ -153,13 +154,13 @@ def makepredicitons():
 #-------------------------------------------------------------------------------------
 ## Define the routes to render basic html pages
 #-------------------------------------------------------------------------------------
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
     return render_template('index.html')
 
 
 # Render the analysis page
-@app.route('/analysis', methods=['GET', 'POST'])
+@app.route('/analysis')
 def analysis():
     return render_template('tableauviz.html')
 
