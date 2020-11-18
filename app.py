@@ -12,8 +12,11 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import Session
 
-connection_string = f'{username}:{passowrd}@localhost:5432/Creditcard_db'   
+# connection_string = f'{username}:{passowrd}@localhost:5432/Creditcard_db'   
+connection_string = f'{username}:{passowrd}@ec2-52-87-22-151.compute-1.amazonaws.com:5432/d38ov1t1kmn4vq'  
 engine = create_engine(f'postgresql://{connection_string}')
+
+
 
 Base = automap_base()
 Base.prepare(engine, reflect=True)
@@ -59,29 +62,9 @@ def makepredicitons():
     columnlist = ['cc_num','category','amt','lat','long','job','merch_lat','merch_long','age','trans_num','unix_time','is_fraud']
     resultset = query_to_dictlist(columnlist, data_test)
 
-    # for records in data_test:
-    #     category = records.category
-    #     birthdate = pd.to_datetime(records.dob)
-    #     ccnumber = records.cc_num
-    #     amount = records.amt
-    #     latitude = records.lat
-    #     longitude = records.long
-    #     job = records.job
-    #     transnum = records.trans_num
-    #     unixtime = records.unix_time
-    #     mlatitude = records.merch_lat
-    #     mlongitude = records.merch_long
-    #     isfraud = records.is_fraud
-    #     age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
-    #     print(f"{birthdate}   :  {age}")
-
     data_train = pd.DataFrame(resultset)
     print(data_train)
 
-    # # Select the columns which are required for the further processing
-    # data_test = data_test[["category", "cc_num", "amt", "lat","long", "job", "age", "trans_num", 
-    #                         "unix_time", "merch_lat","merch_long", "is_fraud"]]
-    # data_test
 
     # Encode the transaction number and convert into numeric
     from sklearn.preprocessing import LabelEncoder
