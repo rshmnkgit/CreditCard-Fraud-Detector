@@ -4,7 +4,7 @@
 
 # Import dependencied
 from flask import Flask, render_template
-from config import username, passowrd
+from config import username, password, host, dbname
 import pandas as pd
 import requests
 import sqlalchemy
@@ -13,7 +13,7 @@ from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import Session
 
 # connection_string = f'{username}:{passowrd}@localhost:5432/Creditcard_db'   
-connection_string = f'{username}:{passowrd}@ec2-52-87-22-151.compute-1.amazonaws.com:5432/d38ov1t1kmn4vq'
+connection_string = f'{username}:{password}@{host}:5432/{dbname}'
 engine = create_engine(f'postgresql://{connection_string}')
 
 
