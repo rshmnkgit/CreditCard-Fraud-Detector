@@ -111,7 +111,8 @@
         <br>
         <h4>Feature Selection</h4>
         <p>
-            <span class="tab"></span>We used Random Forest Classifier and XGBoost Classifier for identifying the weight of each feature on the fraud transactions and prioritise feature importance.
+            <span class="tab"></span>We used Random Forest Classifier and XGBoost Classifier for identifying the weight of each feature on the fraud transactions and prioritise feature importance. 
+            Both the algorithms classified amount as the most important feature and category as the second most important feature in determining fraud transactions.
         </p>
         <div class="row">
             <div class="col-md-6">
@@ -125,7 +126,7 @@
         <h5>Feature Correlation</h5>
         <p>
             <span class="tab"></span>Next step is to identify if there is any correlation between the feaures that detemine the classification of the transactions. 
-            So we plotted featture correaltion diagram. The feature correlation diagram represents the relation between independent features
+            So we plotted feature correaltion diagram. The feature correlation diagram represents the relation between independent features.
         </p>
         <div class="row">
             <div class="col-md-2">
@@ -140,43 +141,27 @@
         <br>
         <h5>Model Selection</h5>
         <p>
-            <span class="tab"></span>The goal of this machine learning process is to classfiy the transactions into fraud or genuine.
-            So we need to use classification algorithms to train the dataset.
-            Initially, we used Logistic Regression Model and Gaussian Naive Bayes Model to train the data.
+            <span class="tab"></span>We used various algortihms to train the dataset. The models used were Logistic Regression Model, Gaussian Naive Bayes Model, Gradient Boosting Regressor Model, K-Nearest Neighbors (KNN) Model and Support Vector Machines (SVM) Model.
+            In order to improve performance and optimize the models, the models were tuned using hyper-parameter tuning with grid search.
+            The performance of the models were evaluated by charting confusion matrix and class matrix.
+            Compared to other models, Logistic Regression model predicted the fraud transactions with a highest accuracy of 89%.
         </p>
-
-        
-<!-- 
-        <div class="row">
-            <div class="col-md-6">
-                <img src="../static/images/randomforest_balanced.jpg" />
-            </div>
-            <div class="col-md-6">
-                <img src="../static/images/histogram_balanced.jpg" />
-            </div>
-        </div>
-        <div class="row">
-
-        </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <img src="../static/images/correlation_balanced.jpg" class="correlate"/>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
--->
 
         <div class="row">
             <div class="col-md-6">
                 <img src="../static/images/cmatrix_logreg_balanced.jpg" />
             </div>
             <div class="col-md-6">
-                <img src="../static/images/cmatrix_gnb_balanced.jpg" />
+                <img src="../static/images/classreport_logistic.JPG" />
             </div>
         </div>
         <br>
 
+        <br>
+        <h5>Save the Model</h5>
+        <p>
+            <span class="tab"></span>We selected Logistic Regression Model as the final model to make predictions.
+            The trained model was saved as .sav file which was loaded to the flask app to be used for predicting the fraud transactions in the test dataset.
 
         <!-- Display Predictions Table  -->
 <!--
