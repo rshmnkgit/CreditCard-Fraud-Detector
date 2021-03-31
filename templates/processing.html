@@ -163,32 +163,7 @@
             <span class="tab"></span>We selected Logistic Regression Model as the final model to make predictions.
             The trained model was saved as .sav file which was loaded to the flask app to be used for predicting the fraud transactions in the test dataset.
 
-        <!-- Display Predictions Table  -->
-<!--
-        <div class='col-md-5' style="padding:15px;">
-            <h4> Predictions </h4>
-            <table class="table  table-striped">
-                <tr>
-                    <td>Card Number</td>
-                    <td>Category</td>
-                    <td>Transaction Number</td>                    
-                    <td>Amount</td>
-                    <td>Actual Value</td>
-                    <td>Predicted Value</td>
-                </tr>
-                {% for row in output_html %}
-                <tr>
-                    <td>{{ row.cc_num }}</td>
-                    <td>{{ row.category }}</td>                    
-                    <td>{{ row.trans_num }}</td>
-                    <td>{{ row.amount }}</td>
-                    <td style="text-align:center">{{ row.actual_value }}</td>
-                    <td style="text-align:center">{{ row.predicted_value }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>  
--->
+        
     </div>
     <!-- =========================================================================== -->
     <!--                                FOOTER                                       -->
