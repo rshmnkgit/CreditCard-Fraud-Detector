@@ -158,11 +158,15 @@ def makepredicitons():
 def index():
     return render_template('index.html')
 
-
 # Render the analysis page
 @app.route('/analysis')
 def analysis():
     return render_template('tableauviz.html')
+
+# Render the analysis page
+@app.route('/development')
+def development():
+    return render_template('processing.html')
 
 # Render the prediction html page
 @app.route('/prediction')
